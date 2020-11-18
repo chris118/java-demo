@@ -1,6 +1,7 @@
 package com.hhit.demo.controller;
 
 import com.hhit.demo.entity.User;
+import com.hhit.demo.exception.APIException;
 import com.hhit.demo.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -25,17 +26,19 @@ public class UserController {
     @ApiOperation("添加用户")
     @PostMapping("/add")
     public String addUser(@RequestBody @Valid User user) {
-
         return userService.addUser(user);
     }
 
     @ApiOperation("获取用户")
     @GetMapping("/{id}")
     public User getUser(@PathVariable Long id) {
-        User user = new User();
-        user.setAccount("12345678");
-        user.setPassword("12345678");
-        user.setEmail("123@qq.com");
-        return user;
+
+        throw new APIException("api exception");
+
+//        User user = new User();
+//        user.setAccount("12345678");
+//        user.setPassword("12345678");
+//        user.setEmail("123@qq.com");
+//        return user;
     }
 }
