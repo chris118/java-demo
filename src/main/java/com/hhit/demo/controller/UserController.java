@@ -24,10 +24,7 @@ public class UserController {
 
     @ApiOperation("添加用户")
     @PostMapping("/add")
-    public String addUser(@RequestBody @Valid User user, BindingResult bindingResult) {
-        for (ObjectError error : bindingResult.getAllErrors()) {
-            return error.getDefaultMessage();
-        }
+    public String addUser(@RequestBody @Valid User user) {
 
         return userService.addUser(user);
     }
@@ -36,7 +33,6 @@ public class UserController {
     @GetMapping("/{id}")
     public User getUser(@PathVariable Long id) {
         User user = new User();
-        user.setId(1L);
         user.setAccount("12345678");
         user.setPassword("12345678");
         user.setEmail("123@qq.com");
