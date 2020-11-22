@@ -3,6 +3,7 @@ package com.hhit.demo.controller;
 import com.hhit.demo.domain.User;
 import com.hhit.demo.exception.APIException;
 import com.hhit.demo.service.UserService;
+import com.hhit.demo.vo.ResultVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,14 +30,14 @@ public class UserController {
 
     @ApiOperation("获取用户")
     @GetMapping("/{id}")
-    public User getUser(@PathVariable Long id) {
+    public ResultVO<User> getUser(@PathVariable Long id) {
 
-        throw new APIException("api exception");
+//        throw new APIException("api exception");
 
-//        User user = new User();
-//        user.setAccount("12345678");
-//        user.setPassword("12345678");
-//        user.setEmail("123@qq.com");
-//        return user;
+        User user = new User();
+        user.setAccount("12345678");
+        user.setPassword("12345678");
+        user.setEmail("123@qq.com");
+        return new ResultVO<>(user);
     }
 }
