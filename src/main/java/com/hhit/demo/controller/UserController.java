@@ -1,5 +1,6 @@
 package com.hhit.demo.controller;
 
+import com.hhit.demo.annotation.NotResponseBody;
 import com.hhit.demo.domain.User;
 import com.hhit.demo.exception.APIException;
 import com.hhit.demo.service.UserService;
@@ -34,6 +35,17 @@ public class UserController {
 
 //        throw new APIException("api exception");
 
+        User user = new User();
+        user.setAccount("12345678");
+        user.setPassword("12345678");
+        user.setEmail("123@qq.com");
+        return user;
+    }
+
+    @ApiOperation("获取用户 测试不返回统一响应")
+    @GetMapping("/other/{id}")
+    @NotResponseBody
+    public User getOtherUser(@PathVariable Long id) {
         User user = new User();
         user.setAccount("12345678");
         user.setPassword("12345678");

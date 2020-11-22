@@ -2,6 +2,7 @@ package com.hhit.demo.config;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.hhit.demo.annotation.NotResponseBody;
 import com.hhit.demo.exception.APIException;
 import com.hhit.demo.vo.ResultVO;
 import org.springframework.core.MethodParameter;
@@ -20,7 +21,9 @@ public class ResponseControllerAdvice implements ResponseBodyAdvice<Object> {
 
     @Override
     public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> aClass) {
-        return !methodParameter.getParameterType().equals(ResultVO.class);
+        // 如果接口返回的类型本身就是ResultVO那就没有必要进行额外的操作，返回false
+        // 如果方法上加了我们的自定义注解也没有必要进行额外的操作
+        return !(methodParameter.getParameterType().equals(ResultVO.class) || methodParameter.hasMethodAnnotation(NotResponseBody.class));
     }
 
     @Override
