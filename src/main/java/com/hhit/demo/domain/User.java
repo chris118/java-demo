@@ -1,4 +1,4 @@
-package com.hhit.demo.entity;
+package com.hhit.demo.domain;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

@@ -1,13 +1,11 @@
 package com.hhit.demo.controller;
 
-import com.hhit.demo.entity.User;
+import com.hhit.demo.domain.User;
 import com.hhit.demo.exception.APIException;
 import com.hhit.demo.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
