@@ -2,6 +2,9 @@ package com.hhit.demo.exception;
 
 import lombok.Getter;
 
+/**
+ * @author wangxiaopeng
+ */
 @Getter
 public class APIException extends RuntimeException {
     private int code;

@@ -4,6 +4,9 @@ import com.hhit.demo.domain.User;
 import com.hhit.demo.service.UserService;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author wangxiaopeng
+ */
 @Service
 public class UserServiceImpl implements UserService {
     @Override

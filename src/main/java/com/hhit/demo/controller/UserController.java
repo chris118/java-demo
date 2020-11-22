@@ -30,7 +30,7 @@ public class UserController {
 
     @ApiOperation("获取用户")
     @GetMapping("/{id}")
-    public ResultVO<User> getUser(@PathVariable Long id) {
+    public User getUser(@PathVariable Long id) {
 
 //        throw new APIException("api exception");
 
@@ -38,6 +38,6 @@ public class UserController {
         user.setAccount("12345678");
         user.setPassword("12345678");
         user.setEmail("123@qq.com");
-        return new ResultVO<>(user);
+        return user;
     }
 }
