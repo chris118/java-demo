@@ -35,11 +35,13 @@ public class UserController {
 
 //        throw new APIException("api exception");
 
-        User user = new User();
-        user.setAccount("12345678");
-        user.setPassword("12345678");
-        user.setEmail("123@qq.com");
-        return user;
+//        User user = new User();
+//        user.setAccount("12345678");
+//        user.setPassword("12345678");
+//        user.setEmail("123@qq.com");
+//        return user;
+
+        return userService.getUser(id);
     }
 
     @ApiOperation("获取用户 测试不返回统一响应")
